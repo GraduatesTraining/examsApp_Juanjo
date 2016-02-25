@@ -9,7 +9,7 @@ describe 'Login page', ->
 
   beforeEach ->
     loginPage = new LoginPagePo
-    browser.get '/#/login';
+    browser.get '/#/login'
 
   it 'should say LoginCtrl', ->
     expect(loginPage.heading.getText()).toEqual 'login'

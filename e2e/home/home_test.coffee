@@ -9,7 +9,7 @@ describe 'Home page', ->
 
   beforeEach ->
     homePage = new HomePagePo
-    browser.get '/#/home';
+    browser.get '/#/home'
 
   it 'should say HomeCtrl', ->
     expect(homePage.heading.getText()).toEqual 'home'

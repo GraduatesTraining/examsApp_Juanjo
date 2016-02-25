@@ -10,6 +10,5 @@ angular
     'ngAria',
     'ngMaterial',
     'ui.router',
-    'home',
-    'login'
+    'home'
   ]
