@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # examsDash
 
 *Generated with [ng-poly](https://github.com/dustinspecker/generator-ng-poly/tree/v0.11.5) version 0.11.5*
@@ -18,3 +19,6 @@
 - Run `gulp webdriverUpdate` to download Selenium server standalone and Chrome driver for e2e testing
 - Run `gulp e2eTest` to run e2e tests via Protractor
  - **A localhost must be running** - `gulp dev`
+=======
+# examsApp_Juanjo
+>>>>>>> 138ca3451c1fdb511f8742d0b249896e88f266b5
