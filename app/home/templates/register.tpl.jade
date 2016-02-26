@@ -1,0 +1,49 @@
+div(layout="row", layout-align="center center")
+  form.register(name="registerForm", flex="50", layout="column", ng-submit="register.submit()", novalidate)
+    div(layout="row", layout-align="center center")
+      md-input-container.md-block(flex="60",flex-gt-sm)
+       label(for="user")
+         <i class="fa fa-users"></i> Username
+       input(type="text", name="user", ng-model="register.form.user", required)
+       div(ng-messages="registerForm.user.$error")
+         div(ng-message="required") This is required!
+    div(layout="row", layout-align="center center")
+      md-input-container.md-block(flex-gt-sm, flex="60")
+       label(for="firstName")
+         <i class="fa fa-user"></i> First Name
+       input(type="text", name="firstname", ng-model="register.form.firstName", required)
+       div(ng-messages="registerForm.firstname.$error")
+         div(ng-message="required") This is required!
+    div(layout="row", layout-align="center center")
+      md-input-container.md-block(flex="60", flex-gt-sm)
+       label(for="lastName")
+         <i class="fa fa-user"></i> Last Name
+       input(type="text", name="lastName", ng-model="register.form.lastName", required)
+       div(ng-messages="registerForm.lastName.$error")
+         div(ng-message="required") This is required!
+    div(layout="row", layout-align="center center")
+      md-input-container.md-block(flex="60", flex-gt-sm)
+        label(for="email")
+          <i class="fa fa-envelope"></i> Email
+        input(type="email", name="email", ng-model="register.form.email", required)
+        div(ng-messages="registerForm.email.$error")
+          div(ng-message-exp="['required', 'email']") Your email must look like an e-mail address.(user@domain.whatever)
+    div(layout="row", layout-align="center center")
+      md-input-container.md-block(flex="60", flex-gt-sm)
+        label(for="pass")
+          <i class="fa fa-key"></i> Password
+        input(type="password", name="pass", ng-model="register.form.password", ng-minlength="8", md-maxlength="20", required)
+        ng-messages(for="registerForm.pass.$error", ng-show="registerForm.pass.$touched || registerForm.pass.$dirty || registerForm.pass.$submitted")
+          ng-message(when="md-maxlength") Maximum length is 20 chars.
+          ng-message(when="minlength") Minimum length is 8 chars.
+          ng-message(when="required") Password is required
+    div(layout="row", layout-align="center center")
+      md-input-container.md-block(flex="60", flex-gt-sm)
+        label(for="confPass")
+          <i class="fa fa-key"></i> Confirm Password
+        input(type="password", name="confPass", ng-model="register.form.confPass", ng-minlength="8", md-maxlength="20", required, ng-pattern="{{register.form.password}}")
+        ng-messages(for="registerForm.confPass.$error", ng-show="registerForm.confPass.$touched || registerForm.confPass.$dirty || registerForm.confPass.$submitted")
+          ng-message(when="required") Password is required
+          ng-message(when="pattern") Password doesn't match
+    div(layout="row", layout-align="center center")
+      md-button.md-warn.md-raised.md-hue-2(type="submit",flex="20") Warn Hue 2

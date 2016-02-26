@@ -1,0 +1,9 @@
+div(layout='column', layout-fill='')
+      md-toolbar#navigation
+        .md-toolbar-tools
+          span(flex="80") 
+            img(src="images/cognizant-logo.png")
+          md-button(flex="6", ui-sref-active="active", data-ui-sref='home.login') LogIn
+          md-button(flex="6", ui-sref-active="active", data-ui-sref='home.register') Register
+      md-content
+        ui-view

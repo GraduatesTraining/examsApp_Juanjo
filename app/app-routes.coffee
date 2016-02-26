@@ -3,4 +3,4 @@
 angular
   .module 'examsDash'
   .config ($urlRouterProvider) ->
-    $urlRouterProvider.otherwise '/login'
+    $urlRouterProvider.otherwise 'home/login'

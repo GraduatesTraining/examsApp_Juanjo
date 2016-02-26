@@ -9,6 +9,7 @@ angular
   .module 'examsDash', [
     'ngAria',
     'ngMaterial',
+    'ngMessages',
     'ui.router',
     'home'
   ]
