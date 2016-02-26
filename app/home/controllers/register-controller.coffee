@@ -8,12 +8,13 @@
 
 ###
 class RegisterCtrl
-  constructor: ->
+  @$inject=['Auth']
+  constructor: (@Auth) ->
     @ctrlName = 'RegisterCtrl'
     @form = {}
-    @submit = submit
-  submit= () ->
-    console.log @form
+    @newUser = newUser
+  newUser = () ->
+    @Auth.createUser(@form)
 
 angular
   .module('home')

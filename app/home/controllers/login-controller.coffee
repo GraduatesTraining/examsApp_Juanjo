@@ -8,7 +8,8 @@
 
 ###
 class LoginCtrl
-  constructor: ->
+  @$inject=['Auth']
+  constructor: (@Auth) ->
     @ctrlName = 'LoginCtrl'
 
 angular

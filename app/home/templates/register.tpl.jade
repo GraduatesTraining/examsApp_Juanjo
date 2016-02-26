@@ -1,5 +1,5 @@
 div(layout="row", layout-align="center center")
-  form.register(name="registerForm", flex="50", layout="column", ng-submit="register.submit()", novalidate)
+  form.register(name="registerForm", flex="50", layout="column", novalidate)
     div(layout="row", layout-align="center center")
       md-input-container.md-block(flex="60",flex-gt-sm)
        label(for="user")
@@ -46,4 +46,4 @@ div(layout="row", layout-align="center center")
           ng-message(when="required") Password is required
           ng-message(when="pattern") Password doesn't match
     div(layout="row", layout-align="center center")
-      md-button.md-warn.md-raised.md-hue-2(type="submit",flex="20") Warn Hue 2
+      md-button.md-warn.md-raised.md-hue-2.login(flex="20", ng-click="register.newUser()") Register
