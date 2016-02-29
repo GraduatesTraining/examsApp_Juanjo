@@ -8,13 +8,14 @@
 
 ###
 class RegisterCtrl
-  @$inject=['Auth']
-  constructor: (@Auth) ->
+  @$inject=['Auth', '$state', '$mdToast', '$document']
+  constructor: (@Auth, @$state, @$mdToast) ->
     @ctrlName = 'RegisterCtrl'
     @form = {}
     @newUser = newUser
   newUser = () ->
     @Auth.createUser(@form)
+
 
 angular
   .module('home')
