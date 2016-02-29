@@ -19,3 +19,9 @@ angular
         templateUrl: 'home/templates/register.tpl.html'
         controller: 'RegisterCtrl'
         controllerAs: 'register'
+      .state 'home.dashboard',
+        url: '/dashboard'
+        templateUrl: 'home/templates/dashboard.tpl.html'
+        controller: 'HomeDashboardCtrl'
+        controllerAs: 'homeDashboard'
+

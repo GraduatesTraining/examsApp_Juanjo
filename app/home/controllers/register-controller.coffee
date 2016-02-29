@@ -9,7 +9,7 @@
 ###
 class RegisterCtrl
   @$inject=['Auth', '$state', '$mdToast', '$document']
-  constructor: (@Auth, @$state, @$mdToast) ->
+  constructor: (@Auth, @$state) ->
     @ctrlName = 'RegisterCtrl'
     @form = {}
     @newUser = newUser
