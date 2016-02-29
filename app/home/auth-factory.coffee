@@ -26,7 +26,9 @@ angular
       AuthBase.auth.$createUser(
         email: item.email
         password: item.password).then((userData) ->
+        delete item.confPass
         AuthBase.showToast('User created successfully.')
+        AuthBase.ref.child("users").child(userData.uid).set(item);
         AuthBase.message = 'User created with uid: ' + userData.uid
         $state.go("home.login")
         return
