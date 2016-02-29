@@ -3,8 +3,8 @@ div(layout='column', layout-fill='')
         .md-toolbar-tools
           span(flex="80") 
             img(src="images/cognizant-logo.png")
-          md-button(flex="6", ui-sref-active="active", data-ui-sref='home.login', ng-show="!home.Auth.loggedIn") LogIn
-          md-button(flex="6", ui-sref-active="active", data-ui-sref='home.register', ng-show="!home.Auth.loggedIn") Register
-          md-button(flex="6", ng-click="home.logout()", ng-show="home.Auth.loggedIn") Logout
+          md-button(flex="6", ui-sref-active="active", data-ui-sref='home.login', ng-if="!home.AuthFactory1.loggedIn") LogIn
+          md-button(flex="6", ui-sref-active="active", data-ui-sref='home.register', ng-if="!home.AuthFactory1.loggedIn") Register
+          md-button(flex="6", ng-if="home.AuthFactory1.loggedIn", ng-click="home.logout()") Logout ({{home.AuthFactory1.user.user}})
       md-content
         ui-view

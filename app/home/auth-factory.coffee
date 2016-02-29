@@ -4,13 +4,14 @@
  # @ngdoc service
  # @name home.factory:Auth
 
- # @description Authentication service for manage users
+ # @description Old auth service
 
 ###
 angular
   .module 'home'
-  .factory 'Auth',['$firebaseAuth','$state', '$mdToast', ($firebaseAuth,$state, $mdToast) ->
+  .factory 'Auth',['$firebaseAuth','$state', '$mdToast', '$http', '$q', ($firebaseAuth,$state, $mdToast, $http, $q) ->
     AuthBase = {}
+    AuthBase.url = "https://examsdash.firebaseio.com/users.json"
     AuthBase.ref = new Firebase ("https://examsdash.firebaseio.com/")
     AuthBase.auth = $firebaseAuth(AuthBase.ref)
     AuthBase.error = null
@@ -24,11 +25,19 @@ angular
           .position("top right")
           .hideDelay(3000)
       )
+    AuthBase.getUserData = (uid) ->
+      deferred = $q.defer()
+      request = $http.get AuthBase.url
+      request
+        .then (result) ->
+          deferred.resolve(result)
+      deferred.promise
     AuthBase.createUser = (item) ->
       AuthBase.auth.$createUser(
         email: item.email
         password: item.password).then((userData) ->
         #If register is succesfull
+        delete item.password
         delete item.confPass
         AuthBase.showToast('User created successfully.')
         #Storing user data in users json
@@ -61,13 +70,16 @@ angular
         else
           console.log "Authenticated successfully"
           AuthBase.loggedIn = 1
-          $state.go("home.dashboard")
-          return
+          AuthBase.getUserData(authData.uid).then((data)->
+            AuthBase.userData = data.data[authData.uid]
+            $state.go("home.dashboard")
+          )
         
       )
     AuthBase.logout = () ->
       AuthBase.ref.unauth()
       AuthBase.loggedIn = 0
+      AuthBase.userData = {}
       AuthBase.showToast('User logged out. Bye!')
       $state.go("home.login")
     AuthBase]

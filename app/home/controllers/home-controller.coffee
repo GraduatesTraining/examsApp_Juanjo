@@ -8,11 +8,12 @@
 
 ###
 class HomeCtrl
-  $inject = ['Auth']
-  constructor: (@Auth) ->
+  $inject = ['AuthFactory1']
+  constructor: (@AuthFactory1) ->
     @ctrlName = 'HomeCtrl'
-    @logout = @Auth.logout
-    console.log @Auth
+    @logout = @AuthFactory1.logout
+    
+    
 angular
   .module('home')
   .controller 'HomeCtrl', HomeCtrl
