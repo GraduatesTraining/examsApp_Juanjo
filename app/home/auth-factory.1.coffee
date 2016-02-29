@@ -37,10 +37,8 @@ angular
       getUserinoData = (uid, url) ->
         deferred = $q.defer()
         request = $http.get url
-        request.then ((result) =>
+        request.then (result) =>
           @user=result.data[uid]
-        ),() ->
-          @user = {}
       createUser: (item) ->
         @auth.$createUser(
           email: item.email
