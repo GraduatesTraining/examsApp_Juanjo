@@ -4,7 +4,7 @@
  # @ngdoc service
  # @name home.factory:Auth
 
- # @description
+ # @description Authentication service for manage users 
 
 ###
 angular
@@ -26,13 +26,16 @@ angular
       AuthBase.auth.$createUser(
         email: item.email
         password: item.password).then((userData) ->
+        #If register is succesfull
         delete item.confPass
         AuthBase.showToast('User created successfully.')
+        #Storing user data in users json
         AuthBase.ref.child("users").child(userData.uid).set(item);
-        AuthBase.message = 'User created with uid: ' + userData.uid
+        AuthBase.message = 'User created succesfully'
         $state.go("home.login")
         return
       ).catch (error) ->
+        #If something went wrong
         AuthBase.error = error
         AuthBase.message = error.message
         AuthBase.showToast(error.message)
