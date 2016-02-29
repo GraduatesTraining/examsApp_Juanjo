@@ -20,9 +20,7 @@ angular
         @message = null
         if @ref.getAuth() then @getUserData(@ref.getAuth().uid) else @user={}
         @showToast = showToast
-        @getUserinoData = getUserinoData
       showToast = (message) ->
-        console.log message
         $mdToast.show(
           $mdToast.simple()
             .textContent(message)
@@ -38,7 +36,7 @@ angular
         deferred = $q.defer()
         request = $http.get url
         request.then (result) =>
-          @user=result.data[uid]
+          result.data[uid]
       createUser: (item) ->
         @auth.$createUser(
           email: item.email
@@ -77,8 +75,7 @@ angular
           else
             console.log "Authenticated successfully"
             @loggedIn = 1
-            @getUserinoData(authData.uid, @url).then((data)=>
-              console.log data
+            getUserinoData(authData.uid, @url).then((data)=>
               @user = data
               $state.go("home.dashboard")
             )
