@@ -9,6 +9,8 @@ angular
   .module 'examsDash', [
     'ngAria',
     'ngMaterial',
+    'ngMessages',
     'ui.router',
+    'firebase',
     'home'
   ]

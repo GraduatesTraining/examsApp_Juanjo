@@ -15,6 +15,7 @@ report
 coverage
 build
 tmp
+mockups_exam_app
 
 # Log files
 *.log
