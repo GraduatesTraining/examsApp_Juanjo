@@ -11,7 +11,6 @@ class LoginCtrl
   @$inject=['AuthFactory1', '$state']
   constructor: (@AuthFactory1, $state) ->
     @ctrlName = 'LoginCtrl'
-    console.log @AuthFactory1
     @form = {}
     @submitLogin = submitLogin
     if(@AuthFactory1.ref.getAuth())

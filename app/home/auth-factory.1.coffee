@@ -61,16 +61,16 @@ angular
           if (error)
             switch (error.code)
               when "INVALID_EMAIL"
-                console.log("The specified user account email is invalid.")
+                @showToast("The specified user account email is invalid.")
                 return
               when "INVALID_PASSWORD"
-                console.log("The specified user account password is incorrect.")
+                @showToast("The specified user account password is incorrect.")
                 return
               when "INVALID_USER"
-                console.log("The specified user account does not exist.")
+                @showToast("The specified user account does not exist.")
                 return
               else
-                console.log("Error logging user in:", error)
+                @showToast("Error logging user in:", error)
                 return
           else
             console.log "Authenticated successfully"
