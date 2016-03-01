@@ -18,7 +18,7 @@ angular
         @error = null
         @loggedIn = @ref.getAuth()?
         @message = null
-        if @ref.getAuth() then @getUserData(@ref.getAuth().uid) else @user={}
+        if @ref.getAuth()? then @getUserData(@ref.getAuth().uid) else @user={}
         @showToast = showToast
       showToast = (message) ->
         $mdToast.show(
@@ -35,7 +35,7 @@ angular
       getUserinoData = (uid, url) ->
         deferred = $q.defer()
         request = $http.get url
-        request.then (result) =>
+        request.then (result) ->
           result.data[uid]
       createUser: (item) ->
         @auth.$createUser(
