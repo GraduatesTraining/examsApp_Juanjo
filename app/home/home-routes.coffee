@@ -23,5 +23,5 @@ angular
         url: '/dashboard'
         templateUrl: 'home/templates/dashboard.tpl.html'
         controller: 'HomeDashboardCtrl'
-        controllerAs: 'homeDashboard'
+        controllerAs: 'dash'
 
