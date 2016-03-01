@@ -3,7 +3,7 @@ div(layout="row", layout-align="center center")
     div(layout="row", layout-align="center center")
       md-input-container(flex="60").md-block(flex-gt-sm)
        label(for="username")
-         <i class="fa fa-envelope"></i> Email {{loginForm.$valid}}
+         <i class="fa fa-envelope"></i> Email
        input(type="text", name="email", ng-model="login.form.email", required)
        div(ng-messages="loginForm.email.$error")
          div(ng-message="required") Username is required
