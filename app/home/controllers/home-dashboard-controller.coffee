@@ -14,11 +14,6 @@ class HomeDashboardCtrl
     if(!@AuthFactory1.ref.getAuth())
       @AuthFactory1.showToast("You should login first.")
       $state.go("home.login")
-  close: () ->
-      @$mdSidenav('left').close()
-  toggle: () ->
-      @$mdSidenav('left').toggle()
-  
 
 
 angular

@@ -6,15 +6,15 @@ md-toolbar#navigation
         i.fa.fa-bars.fa-3x
     md-button(flex="6", ui-sref-active="active", data-ui-sref='home.login', ng-if="!home.AuthFactory1.loggedIn") LogIn
     md-button(flex="6", ui-sref-active="active", data-ui-sref='home.register', ng-if="!home.AuthFactory1.loggedIn") Register
-    md-button(flex="6", ng-if="home.AuthFactory1.loggedIn", ng-click="home.logout()") Logout ({{home.AuthFactory1.user.user}})
+    md-button(flex="6", ng-if="home.AuthFactory1.loggedIn", ng-click="home.logout()") 
+      <i class="fa fa-sign-out"></i>({{home.AuthFactory1.user.user}})
 md-content(layout="row", layout-fill, flex)
   md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left", md-is-locked-open="$mdMedia('gt-md')" ng-if="home.AuthFactory1.loggedIn")
     md-toolbar#sidebarhead(layout="row")
-      img#avatar(flex="20", src="images/cognizant-logo-sm.png")
-      h1.md-toolbar-tools(flex="80") {{home.AuthFactory1.user.firstName}} {{home.AuthFactory1.user.lastName}}
-      md-button(ng-click="home.close()" class="md-primary" hide-gt-md="") Close
+      img.img-circle(flex="30", src="images/Sharingan_infobox_HD.png")
+      h1.md-toolbar-tools(flex="70") {{home.AuthFactory1.user.firstName}} {{home.AuthFactory1.user.lastName}}
     md-content(layout-padding="")
-      p
-        | This sidenav is locked open on your device. To go back to the default behavior,
-        | narrow your display.
+      md-list
+        md-list-item(ng-click="navigateTo(setting.extraScreen, $event)" ng-repeat="setting in home.settings")
+          p {{ setting.name }}
   ui-view(layout='row', layout-fill, flex)
