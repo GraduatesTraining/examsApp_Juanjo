@@ -1,9 +1,9 @@
 div(layout="row", layout-align="center center")
-  form.login(name="loginForm" flex="35", layout="column")
+  form.login(name="loginForm" flex="35", layout="column", ng-submit="loginForm.$valid && login.submitLogin()", novalidate)
     div(layout="row", layout-align="center center")
       md-input-container(flex="60").md-block(flex-gt-sm)
        label(for="username")
-         <i class="fa fa-envelope"></i> Email
+         <i class="fa fa-envelope"></i> Email {{loginForm.$valid}}
        input(type="text", name="email", ng-model="login.form.email", required)
        div(ng-messages="loginForm.email.$error")
          div(ng-message="required") Username is required
@@ -15,5 +15,5 @@ div(layout="row", layout-align="center center")
         div(ng-messages="loginForm.password.$error")
           div(ng-message="required") Password is required
     div(layout="row", layout-align="center center")
-      md-button.md-warn.md-raised.md-hue-2.login(flex="20", ng-click="login.submitLogin()") Login
+      md-button.md-warn.md-raised.md-hue-2.login(flex="20", type="submit") Login
       md-button.md-warn.md-raised.md-hue-2.register(flex="20", data-ui-sref='home.register') SignUp

@@ -46,4 +46,4 @@ div(layout="row", layout-align="center center")
           ng-message(when="required") Password is required
           ng-message(when="pattern") Password doesn't match
     div(layout="row", layout-align="center center")
-      md-button.md-warn.md-raised.md-hue-2.login(flex="20", ng-click="register.newUser()") Register
+      md-button.md-warn.md-raised.md-hue-2.login(flex="20", ng-disabled="registerForm.$invalid", ng-click="register.newUser()") Register {{}}
