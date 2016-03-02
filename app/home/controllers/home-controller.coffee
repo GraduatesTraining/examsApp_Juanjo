@@ -22,11 +22,10 @@ class HomeCtrl
   toggle: () ->
     @$mdSidenav('left').toggle()
   isLoggedIn: (num) ->
-    if num is 0 
-      @AuthFactory1.loggedIn 
+    if num is 0
+      @AuthFactory1.loggedIn
     else 
-      not @AuthFactory1.loggedIn 
-    
+      not @AuthFactory1.loggedIn
 angular
   .module('home')
   .controller 'HomeCtrl', HomeCtrl

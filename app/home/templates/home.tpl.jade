@@ -11,7 +11,7 @@ md-toolbar#navigation
     md-button(flex="6", ng-if="home.isLoggedIn(0)", ng-click="home.logout()") 
       <i class="fa fa-sign-out"></i>({{home.AuthFactory1.user.user}})
 md-content(layout="row", flex)
-  md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left", md-is-locked-open="$mdMedia('gt-md')" ng-if="home.isLoggedIn()")
+  md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left", md-is-locked-open="$mdMedia('gt-md')" ng-if="home.isLoggedIn(0)")
     md-content
       md-list
         md-list-item(ng-click="navigateTo(setting.extraScreen, $event)" ng-repeat="setting in home.settings", layout="row", layout-align="center center", ui-sref-active="active", data-ui-sref='{{setting.route}}')
