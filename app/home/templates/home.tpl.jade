@@ -1,17 +1,17 @@
 md-toolbar#navigation
   .md-toolbar-tools
     span(flex="80" layout="row")
-      img(src="images/cognizant-logo-sm.png" ng-if="!home.AuthFactory1.loggedIn")
-      md-button(ng-click="home.toggle()" ng-if="home.AuthFactory1.loggedIn" hide-gt-md="" aria-label="Toggle menu")
+      img(src="images/cognizant-logo-sm.png" ng-if="home.isLoggedIn(1)")
+      md-button(ng-click="home.toggle()" ng-if="home.isLoggedIn(0)" hide-gt-md="" aria-label="Toggle menu")
         i.fa.fa-bars.fa-2x
-      img.img-circle(flex="30", src="images/Sharingan_infobox_HD.png", ng-if="home.AuthFactory1.loggedIn")
-      h1.md-toolbar-tools(flex="70", ng-if="home.AuthFactory1.loggedIn") {{home.AuthFactory1.user.firstName}} {{home.AuthFactory1.user.lastName}}
-    md-button(flex="6", ui-sref-active="active", data-ui-sref='home.login', ng-if="!home.AuthFactory1.loggedIn") LogIn
-    md-button(flex="6", ui-sref-active="active", data-ui-sref='home.register', ng-if="!home.AuthFactory1.loggedIn") Register
-    md-button(flex="6", ng-if="home.AuthFactory1.loggedIn", ng-click="home.logout()") 
+      img.img-circle(flex="30", src="images/Sharingan_infobox_HD.png", ng-if="home.isLoggedIn(0)")
+      h1.md-toolbar-tools(flex="70", ng-if="home.isLoggedIn(0)") {{home.AuthFactory1.user.firstName}} {{home.AuthFactory1.user.lastName}}
+    md-button(flex="6", ui-sref-active="active", data-ui-sref='home.login', ng-if="home.isLoggedIn(1)") LogIn
+    md-button(flex="6", ui-sref-active="active", data-ui-sref='home.register', ng-if="home.isLoggedIn(1)") Register
+    md-button(flex="6", ng-if="home.isLoggedIn(0)", ng-click="home.logout()") 
       <i class="fa fa-sign-out"></i>({{home.AuthFactory1.user.user}})
-md-content.principal-container(layout="row", layout-fill, flex)
-  md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left", md-is-locked-open="$mdMedia('gt-md')" ng-if="home.AuthFactory1.loggedIn")
+md-content(layout="row", flex)
+  md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left", md-is-locked-open="$mdMedia('gt-md')" ng-if="home.isLoggedIn()")
     md-content
       md-list
         md-list-item(ng-click="navigateTo(setting.extraScreen, $event)" ng-repeat="setting in home.settings", layout="row", layout-align="center center", ui-sref-active="active", data-ui-sref='{{setting.route}}')
