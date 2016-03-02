@@ -24,7 +24,7 @@ class HomeCtrl
   isLoggedIn: (num) ->
     if num is 0
       @AuthFactory1.loggedIn
-    else 
+    else
       not @AuthFactory1.loggedIn
 angular
   .module('home')
