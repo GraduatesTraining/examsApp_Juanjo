@@ -45,4 +45,4 @@ form.register(name="registerForm", flex="60", flex-offset="20", layout="column",
         ng-message(when="required") Password is required
         ng-message(when="pattern") Password doesn't match
   div(layout="row", layout-align="center center")
-    md-button.md-warn.md-raised.md-hue-2.login(flex="20", ng-disabled="registerForm.$invalid", ng-click="register.newUser(registerForm)") Register
+    md-button.md-warn.md-raised.md-hue-2.login(flex="20", ng-disabled="registerForm.$invalid", ng-click="register.newUser()") Register
