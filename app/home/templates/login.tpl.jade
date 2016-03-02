@@ -1,18 +1,19 @@
-form.login(name="loginForm",ng-submit="loginForm.$valid && login.submitLogin()", novalidate, flex="60", flex-offset="20")
-  div(layout="row", layout-align="center center")
-    md-input-container(flex="60").md-block(flex-gt-sm)
-     label(for="username")
-       <i class="fa fa-envelope"></i> Email
-     input(type="text", name="email", ng-model="login.form.email", required)
-     div(ng-messages="loginForm.email.$error")
-       div(ng-message="required") Username is required
-  div(layout="row", layout-align="center center")
-    md-input-container(flex="60").md-block(flex-gt-sm)
-      label(for="password")
-        <i class="fa fa-key"></i> Password
-      input(type="password", name="password", ng-model="login.form.password", required)
-      div(ng-messages="loginForm.password.$error")
-        div(ng-message="required") Password is required
-  div(layout="row", layout-align="center center")
-    md-button.md-warn.md-raised.md-hue-2.login(flex="20", type="submit") Login
-    md-button.md-warn.md-raised.md-hue-2.register(flex="20", data-ui-sref='home.register') SignUp
+md-whiteframe.md-whiteframe-7dp.login(flex="40" flex-offset="30")
+  form.login(name="loginForm",ng-submit="loginForm.$valid && login.submitLogin()", novalidate, flex="60", flex-offset="20")
+    div(layout="row", layout-align="center center")
+      md-input-container(flex).md-block(flex-gt-sm)
+        label(for="email")
+          <i class="fa fa-envelope"></i> Email
+        input(type="email", name="email", ng-model="login.form.email", required)
+        div(ng-messages="loginForm.password.$error")
+          div(ng-message="required") Password is required
+    div(layout="row", layout-align="center center")
+      md-input-container(flex).md-block(flex-gt-sm)
+        label(for="password")
+          <i class="fa fa-key"></i> Password
+        input(type="password", name="password", ng-model="login.form.password", required)
+        div(ng-messages="loginForm.password.$error")
+          div(ng-message="required") Password is required
+    div(layout-gt-sm="row", layout="column", layout-align="center center")
+      md-button.md-warn.md-raised.md-hue-2.login(flex="10", type="submit") Login
+      md-button.md-warn.md-raised.md-hue-2.register(flex="10", data-ui-sref='home.register') SignUp
