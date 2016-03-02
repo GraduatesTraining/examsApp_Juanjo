@@ -13,8 +13,9 @@ class HomeCtrl
     @ctrlName = 'HomeCtrl'
     @logout = @AuthFactory1.logout
     @settings = [
-      { name: 'Wi-Fi', enabled: true },
-      { name: 'Bluetooth', enabled: false },
+      { name: 'Dashboard', enabled: true, icon: 'fa fa-book', route: 'home.dashboard' },
+      { name: 'Exams', enabled: true, icon: 'fa fa-file-text-o', route: '' },
+      { name: 'Stats', enabled: false, icon: 'fa fa-bar-chart', route: '' },
     ]
   close: () ->
     @$mdSidenav('left').toggle()
