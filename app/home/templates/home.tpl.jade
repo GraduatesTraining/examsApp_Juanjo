@@ -3,8 +3,8 @@ md-toolbar#navigation(ng-switch="home.isLoggedIn()")
     span(flex="80" layout="row")
       md-button(ng-click="home.toggle()" hide-gt-md="" aria-label="Toggle menu")
         i.fa.fa-bars.fa-2x
-      img.img-circle(flex="30", src="images/Sharingan_infobox_HD.png")
-      h1.md-toolbar-tools(flex="70", ng-if="home.isLoggedIn(0)") {{home.AuthFactory1.user.firstName}} {{home.AuthFactory1.user.lastName}}
+      img.img-circle(flex="30", src="images/1.png")
+      h1.md-toolbar-tools(flex="70") {{home.AuthFactory1.user.firstName}} {{home.AuthFactory1.user.lastName}}
     md-button(flex="6", ng-click="home.logout()") 
       <i class="fa fa-sign-out"></i>({{home.AuthFactory1.user.user}})
   .md-toolbar-tools(ng-switch-when="false")
@@ -16,7 +16,7 @@ md-content(layout="row", flex)
   md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left", md-is-locked-open="$mdMedia('gt-md')" ng-if="home.isLoggedIn(0)")
     md-content
       md-list
-        md-list-item(ng-click="navigateTo(setting.extraScreen, $event)" ng-repeat="setting in home.settings", layout="row", layout-align="center center", ui-sref-active="active", data-ui-sref='{{setting.route}}')
+        md-list-item(ng-repeat="setting in home.settings", layout="row", layout-align="center center", ui-sref-active="active", data-ui-sref='{{setting.route}}')
           i(class="{{setting.icon}}" flex="20")
           span(flex="10")
           p(flex="70") {{ setting.name }}
