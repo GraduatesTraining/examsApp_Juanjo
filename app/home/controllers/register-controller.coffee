@@ -13,7 +13,10 @@ class RegisterCtrl
     @ctrlName = 'RegisterCtrl'
     @form = {}
     @newUser = newUser
-  newUser = () ->
+  showMessages: (formElem) ->
+    formElem.$touched || formElem.$dirty || formElem.$submitted
+  newUser = (form) ->
+    console.log form.$valid
     @AuthFactory1.createUser(@form)
 
 

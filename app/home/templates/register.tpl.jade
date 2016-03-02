@@ -32,7 +32,7 @@ form.register(name="registerForm", flex="60", flex-offset="20", layout="column",
       label(for="pass")
         <i class="fa fa-key"></i> Password
       input(type="password", name="pass", ng-model="register.form.password", ng-minlength="8", md-maxlength="20", required)
-      ng-messages(for="registerForm.pass.$error", ng-show="registerForm.pass.$touched || registerForm.pass.$dirty || registerForm.pass.$submitted")
+      ng-messages(for="registerForm.pass.$error", ng-show="register.showMessages(registerForm.pass)")
         ng-message(when="md-maxlength") Maximum length is 20 chars.
         ng-message(when="minlength") Minimum length is 8 chars.
         ng-message(when="required") Password is required
@@ -41,8 +41,8 @@ form.register(name="registerForm", flex="60", flex-offset="20", layout="column",
       label(for="confPass")
         <i class="fa fa-key"></i> Confirm Password
       input(type="password", name="confPass", ng-model="register.form.confPass", ng-minlength="8", md-maxlength="20", required, ng-pattern="{{register.form.password}}")
-      ng-messages(for="registerForm.confPass.$error", ng-show="registerForm.confPass.$touched || registerForm.confPass.$dirty || registerForm.confPass.$submitted")
+      ng-messages(for="registerForm.confPass.$error", ng-show="register.showMessages(registerForm.confPass)")
         ng-message(when="required") Password is required
         ng-message(when="pattern") Password doesn't match
   div(layout="row", layout-align="center center")
-    md-button.md-warn.md-raised.md-hue-2.login(flex="20", ng-disabled="registerForm.$invalid", ng-click="register.newUser()") Register
+    md-button.md-warn.md-raised.md-hue-2.login(flex="20", ng-disabled="registerForm.$invalid", ng-click="register.newUser(registerForm)") Register
