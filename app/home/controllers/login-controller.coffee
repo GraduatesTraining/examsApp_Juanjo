@@ -8,12 +8,12 @@
 
 ###
 class LoginCtrl
-  @$inject=['AuthFactory', '$state']
-  constructor: (@AuthFactory, $state) ->
+  @$inject=['AuthFactory','FireBaseFactory', '$state']
+  constructor: (@AuthFactory, @FireBaseFactory, $state) ->
     @ctrlName = 'LoginCtrl'
     @form = {}
     @submitLogin = submitLogin
-    if(@AuthFactory.ref.getAuth())
+    if(@FireBaseFactory.ref.getAuth())
       $state.go("home.dashboard")
   submitLogin = () ->
     @AuthFactory.login(@form)

@@ -8,11 +8,11 @@
 
 ###
 class HomeDashboardCtrl
-  $inject = ['AuthFactory', '$state', '$mdSidenav']
-  constructor: (@AuthFactory, $state, @$mdSidenav) ->
+  $inject = ['AuthFactory', 'FireBaseFactory', 'UtilsFactory', '$state', '$mdSidenav']
+  constructor: (@AuthFactory, $state, @$mdSidenav, UtilsFactory, FireBaseFactory) ->
     @ctrlName = 'HomeDashboardCtrl'
-    if(!@AuthFactory.ref.getAuth())
-      @AuthFactory.showToast("You should login first.")
+    if(!FireBaseFactory.ref.getAuth())
+      UtilsFactory.showToast("You should login first.")
       $state.go("home.login")
 
 

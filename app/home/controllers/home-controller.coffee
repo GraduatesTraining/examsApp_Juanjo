@@ -8,8 +8,8 @@
 
 ###
 class HomeCtrl
-  $inject = ['AuthFactory', '$mdSidenav']
-  constructor: (@AuthFactory, @$mdSidenav) ->
+  $inject = ['AuthFactory','UserData', '$mdSidenav']
+  constructor: (@AuthFactory, @$mdSidenav, @UserData) ->
     @ctrlName = 'HomeCtrl'
     @logout = @AuthFactory.logout
     @settings = [
