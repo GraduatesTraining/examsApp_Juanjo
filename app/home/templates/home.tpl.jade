@@ -13,7 +13,7 @@ md-toolbar#navigation(ng-switch="home.isLoggedIn()")
     md-button(flex="6", ui-sref-active="active", data-ui-sref='home.login') LogIn
     md-button(flex="6", ui-sref-active="active", data-ui-sref='home.register') Register
 md-content(layout="row", flex)
-  md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left", md-is-locked-open="$mdMedia('gt-md')" ng-if="home.isLoggedIn(0)")
+  md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left", md-is-locked-open="$mdMedia('gt-md')" ng-if="home.isLoggedIn()")
     md-content
       md-list
         md-list-item(ng-repeat="setting in home.settings", layout="row", layout-align="center center", ui-sref-active="active", data-ui-sref='{{setting.route}}')
