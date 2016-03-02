@@ -74,16 +74,17 @@ angular
                 return
           else
             console.log "Authenticated successfully"
-            @loggedIn = 1
+            @loggedIn = true
             getUserinoData(authData.uid, @url).then((data)=>
               @user = data
-              $state.go("home.dashboard")
+              
             )
+            $state.go("home.dashboard")
           
         )
       logout: () =>
         @ref.unauth()
-        @loggedIn = 0
+        @loggedIn = false
         @user = {}
         @showToast('User logged out. Bye!')
         $state.go("home.login")
