@@ -4,9 +4,9 @@ md-toolbar#navigation(ng-switch="home.isLoggedIn()")
       md-button(ng-click="home.toggle()" hide-gt-md="" aria-label="Toggle menu")
         i.fa.fa-bars.fa-2x
       img.img-circle(flex="30", src="images/1.png")
-      h1.md-toolbar-tools(flex="70") {{home.AuthFactory1.user.firstName}} {{home.AuthFactory1.user.lastName}}
+      h1.md-toolbar-tools(flex="70") {{home.AuthFactory.user.firstName}} {{home.AuthFactory.user.lastName}}
     md-button(flex="6", ng-click="home.logout()") 
-      <i class="fa fa-sign-out"></i>({{home.AuthFactory1.user.user}})
+      <i class="fa fa-sign-out"></i>({{home.AuthFactory.user.user}})
   .md-toolbar-tools(ng-switch-when="false")
     span(flex="80" layout="row")
       img(src="images/cognizant-logo-sm.png" )

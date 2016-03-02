@@ -8,10 +8,10 @@
 
 ###
 class HomeCtrl
-  $inject = ['AuthFactory1', '$mdSidenav']
-  constructor: (@AuthFactory1, @$mdSidenav) ->
+  $inject = ['AuthFactory', '$mdSidenav']
+  constructor: (@AuthFactory, @$mdSidenav) ->
     @ctrlName = 'HomeCtrl'
-    @logout = @AuthFactory1.logout
+    @logout = @AuthFactory.logout
     @settings = [
       { name: 'Dashboard', enabled: true, icon: 'fa fa-book', route: 'home.dashboard' },
       { name: 'Exams', enabled: true, icon: 'fa fa-file-text-o', route: 'home.exams' },
@@ -22,7 +22,7 @@ class HomeCtrl
   toggle: () ->
     @$mdSidenav('left').toggle()
   isLoggedIn: () ->
-    @AuthFactory1.loggedIn
+    @AuthFactory.loggedIn
 
 angular
   .module('home')

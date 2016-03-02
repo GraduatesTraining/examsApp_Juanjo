@@ -8,15 +8,15 @@
 
 ###
 class RegisterCtrl
-  @$inject=['AuthFactory1', '$state', '$mdToast', '$document']
-  constructor: (@AuthFactory1, @$state) ->
+  @$inject=['AuthFactory', '$state', '$mdToast', '$document']
+  constructor: (@AuthFactory, @$state) ->
     @ctrlName = 'RegisterCtrl'
     @form = {}
     @newUser = newUser
   showMessages: (formElem) ->
     formElem.$touched || formElem.$dirty || formElem.$submitted
   newUser = () ->
-    @AuthFactory1.createUser(@form)
+    @AuthFactory.createUser(@form)
 
 
 angular

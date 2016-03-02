@@ -9,7 +9,7 @@
 ###
 angular
   .module 'home'
-  .factory 'AuthFactory1',['$firebaseAuth','$state', '$mdToast', '$http', '$q', ($firebaseAuth,$state, $mdToast, $http, $q) ->
+  .factory 'AuthFactory',['$firebaseAuth','$state', '$mdToast', '$http', '$q', '$log', ($firebaseAuth,$state, $mdToast, $http, $q, $log) ->
     new class Auth
       constructor: () ->
         @url = "https://examsdash.firebaseio.com/users.json"
@@ -28,12 +28,10 @@ angular
             .hideDelay(3000)
         )
       getUserData: (uid) =>
-        deferred = $q.defer()
         request = $http.get @url
         request.then (result) =>
           @user=result.data[uid]
       getUserinoData = (uid, url) ->
-        deferred = $q.defer()
         request = $http.get url
         request.then (result) ->
           result.data[uid]
@@ -73,7 +71,7 @@ angular
                 @showToast("Error logging user in:", error)
                 return
           else
-            console.log "Authenticated successfully"
+            $log.info "Authenticated successfully"
             @loggedIn = true
             getUserinoData(authData.uid, @url).then((data)=>
               @user = data
