@@ -12,7 +12,6 @@ angular
   .factory 'AuthFactory',['$state', '$mdToast', '$http', '$q', '$log', 'UtilsFactory','UserData', 'FireBaseFactory', ($state, $mdToast, $http, $q, $log, UtilsFactory, UserData, FireBaseFactory) ->
     new class Auth
       constructor: () ->
-        console.log FireBaseFactory
         @loggedIn = FireBaseFactory.ref.getAuth()?
       login: (item) =>
         FireBaseFactory.ref.authWithPassword(item , (error, authData) =>
