@@ -7,6 +7,8 @@ md-toolbar#navigation(ng-switch="home.isLoggedIn()")
       h1.md-toolbar-tools(flex="70") {{home.UserData.user.firstName}} {{home.UserData.user.lastName}}
     md-button(flex="6", ng-click="home.logout()") 
       <i class="fa fa-sign-out"></i>({{home.UserData.user.user}})
+    md-button(flex="6") 
+      i.fa.fa-envelope
   .md-toolbar-tools(ng-switch-when="false")
     span(flex="80" layout="row")
       img(src="images/cognizant-logo-sm.png" )
