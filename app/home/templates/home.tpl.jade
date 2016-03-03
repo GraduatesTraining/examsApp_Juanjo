@@ -8,7 +8,7 @@ md-toolbar#navigation(ng-switch="home.isLoggedIn()")
           md-button(aria-label="Avatar")
             img.img-circle(ng-src="images/{{home.UserData.user.avatar}}.png")
             md-tooltip(md-direction="bottom") Click to change your avatar!
-        md-fab-actions(ng-repeat="avatar in home.avatar")
+        md-fab-actions(ng-repeat="avatar in home.UtilsFactory.avatarList")
           md-button(ng-if="home.UserData.checkAvatar(avatar.value)" aria-label="Avatar" ng-click="home.UserData.changeAvatar(avatar.value)")
             img.img-circle(ng-src="images/{{avatar.value}}.png")
             md-tooltip(md-direction="right") {{avatar.name}}

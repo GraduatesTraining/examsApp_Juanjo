@@ -13,6 +13,13 @@ angular
     new class Utils
       constructor: () ->
         @showToast = showToast
+        @avatarList = [
+          { name: 'Eva', value: '1'},
+          { name: 'Sharingan', value: '2'},
+          { name: 'Tetsuo', value: '3'},
+          { name: 'Vayne', value: '4'},
+          { name: 'Luffy', value: '5'}
+        ]
       showToast = (message) ->
         $mdToast.show(
           $mdToast.simple()
