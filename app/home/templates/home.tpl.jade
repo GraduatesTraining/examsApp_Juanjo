@@ -1,14 +1,18 @@
 md-toolbar#navigation(ng-switch="home.isLoggedIn()")
   .md-toolbar-tools(ng-switch-when="true")
     span(flex="80" layout="row")
-      md-button(ng-click="home.toggle()" hide-gt-md="" aria-label="Toggle menu")
+      md-button(ng-click="home.toggle()" hide-gt-md="" aria-label="Toggle menu" flex="5" )
         i.fa.fa-bars.fa-2x
-      img.img-circle(flex="30", src="images/1.png")
-      h1.md-toolbar-tools(flex="70") {{home.UserData.user.firstName}} {{home.UserData.user.lastName}}
-    md-button(flex="6", ng-click="home.logout()") 
-      <i class="fa fa-sign-out"></i>({{home.UserData.user.user}})
-    md-button(flex="6") 
+      md-button(flex="5")
+        img.img-circle(src="images/1.png")
+        md-tooltip(md-direction="bottom") Click to change your avatar!
+      h1.md-toolbar-tools(flex="70" hide show-gt-md="") {{home.UserData.user.firstName}} {{home.UserData.user.lastName}}
+    md-button(flex="5", ng-click="home.logout()" hide show-gt-md="") 
+      <i class="fa fa-sign-out"></i>
+      md-tooltip(md-direction="bottom") Log Out 
+    md-button(flex="5") 
       i.fa.fa-envelope
+      md-tooltip(md-direction="bottom") Inbox Messages
   .md-toolbar-tools(ng-switch-when="false")
     span(flex="80" layout="row")
       img(src="images/cognizant-logo-sm.png" )
@@ -16,6 +20,11 @@ md-toolbar#navigation(ng-switch="home.isLoggedIn()")
     md-button(flex="6", ui-sref-active="active", data-ui-sref='home.register') Register
 md-content(layout="row", flex)
   md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left", md-is-locked-open="$mdMedia('gt-md')" ng-if="home.isLoggedIn()")
+    md-toolbar#sidebarhead(hide-gt-md="" layout="row")
+      h1.md-toolbar-tools(flex="85"){{home.UserData.user.firstName}} {{home.UserData.user.lastName}}
+      md-button(flex, ng-click="home.logout()") 
+        <i class="fa fa-sign-out"></i>
+        md-tooltip(md-direction="bottom") Log Out 
     md-content
       md-list
         md-list-item(ng-repeat="setting in home.settings", layout="row", layout-align="center center", ui-sref-active="active", data-ui-sref='{{setting.route}}')
