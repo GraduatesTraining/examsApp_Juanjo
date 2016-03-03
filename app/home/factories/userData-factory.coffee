@@ -12,6 +12,7 @@ angular
   .factory 'UserData',['FireBaseFactory','$http', '$log', (FireBaseFactory,$http, $log) ->
     new class User
       constructor: () ->
+        @user={}
         if FireBaseFactory.ref.getAuth()? then @getUserData(FireBaseFactory.ref.getAuth().uid, FireBaseFactory.url) else @user={}
       getUserData: (uid, url) =>
         request = $http.get url
