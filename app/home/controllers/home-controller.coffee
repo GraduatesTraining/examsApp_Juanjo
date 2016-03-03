@@ -20,7 +20,7 @@ class HomeCtrl
     @avatar = [
       { name: 'Eva', value: '1'},
       { name: 'Sharingan', value: '2'},
-      { name: 'CBebop', value: '3'},
+      { name: 'Tetsuo', value: '3'},
       { name: 'Vayne', value: '4'},
       { name: 'Luffy', value: '5'}
     ]
