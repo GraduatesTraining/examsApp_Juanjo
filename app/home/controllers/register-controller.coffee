@@ -16,9 +16,9 @@ class RegisterCtrl
     }
     @newUser = newUser
     @avatar = [
-      { name: 'Jhin', value: '1'},
+      { name: 'Eva', value: '1'},
       { name: 'Sharingan', value: '2'},
-      { name: 'Kyubi Senjutsu', value: '3'},
+      { name: 'CBebop', value: '3'},
       { name: 'Vayne', value: '4'},
       { name: 'Luffy', value: '5'},
     ]
