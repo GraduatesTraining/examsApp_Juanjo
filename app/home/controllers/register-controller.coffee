@@ -19,7 +19,8 @@ class RegisterCtrl
       { name: 'Jhin', value: '1'},
       { name: 'Sharingan', value: '2'},
       { name: 'Kyubi Senjutsu', value: '3'},
-      { name: 'Vayne', value: '4'}
+      { name: 'Vayne', value: '4'},
+      { name: 'Luffy', value: '5'},
     ]
   showMessages: (formElem) ->
     formElem.$touched || formElem.$dirty || formElem.$submitted
