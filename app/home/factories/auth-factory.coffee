@@ -32,7 +32,6 @@ angular
           else
             $log.info "Authenticated successfully"
             @loggedIn = true
-            console.log UserData
             UserData.getUserData(authData.uid, FireBaseFactory.url).then((data)=>
               UserData.user = data
             )

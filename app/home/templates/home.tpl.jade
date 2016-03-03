@@ -3,9 +3,15 @@ md-toolbar#navigation(ng-switch="home.isLoggedIn()")
     span(flex="80" layout="row")
       md-button(ng-click="home.toggle()" hide-gt-md="" aria-label="Toggle menu" flex="5" )
         i.fa.fa-bars.fa-2x
-      md-button(flex="5")
-        img.img-circle(src="images/{{home.UserData.user.avatar}}.png")
-        md-tooltip(md-direction="bottom") Click to change your avatar!
+      md-fab-speed-dial.md-scale.over-all(md-direction="down" flex="5")
+        md-fab-trigger
+          md-button(aria-label="Avatar")
+            img.img-circle(ng-src="images/{{home.UserData.user.avatar}}.png")
+            md-tooltip(md-direction="bottom") Click to change your avatar!
+        md-fab-actions(ng-repeat="avatar in home.avatar")
+          md-button(ng-if="home.UserData.checkAvatar(avatar.value)" aria-label="Avatar" ng-click="home.UserData.changeAvatar(avatar.value)")
+            img.img-circle(ng-src="images/{{avatar.value}}.png")
+            md-tooltip(md-direction="right") {{avatar.name}}
       h1.md-toolbar-tools(flex="70" hide show-gt-md="") {{home.UserData.user.firstName}} {{home.UserData.user.lastName}}
     md-button(flex="5", ng-click="home.logout()" hide show-gt-md="") 
       <i class="fa fa-sign-out"></i>
@@ -19,7 +25,7 @@ md-toolbar#navigation(ng-switch="home.isLoggedIn()")
     md-button(flex="6", ui-sref-active="active", data-ui-sref='home.login') LogIn
     md-button(flex="6", ui-sref-active="active", data-ui-sref='home.register') Register
 md-content(layout="row", flex)
-  md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left", md-is-locked-open="$mdMedia('gt-md')" ng-if="home.isLoggedIn()")
+  md-sidenav.sidenav-behind.md-sidenav-left.md-whiteframe-z2(md-component-id="left", md-is-locked-open="$mdMedia('gt-md')" ng-if="home.isLoggedIn()")
     md-toolbar#sidebarhead(hide-gt-md="" layout="row")
       h1.md-toolbar-tools(flex="85"){{home.UserData.user.firstName}} {{home.UserData.user.lastName}}
       md-button(flex, ng-click="home.logout()") 
