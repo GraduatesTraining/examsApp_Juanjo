@@ -32,7 +32,7 @@ angular
           else
             $log.info "Authenticated successfully"
             @loggedIn = true
-            UserData.getUserData(authData.uid, FireBaseFactory.url).then((data)=>
+            UserData.getUserData(authData.uid, FireBaseFactory.url).then((data)->
               UserData.user = data
             )
             $state.go("home.dashboard")
