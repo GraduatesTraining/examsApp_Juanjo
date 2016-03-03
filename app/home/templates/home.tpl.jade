@@ -4,7 +4,7 @@ md-toolbar#navigation(ng-switch="home.isLoggedIn()")
       md-button(ng-click="home.toggle()" hide-gt-md="" aria-label="Toggle menu" flex="5" )
         i.fa.fa-bars.fa-2x
       md-button(flex="5")
-        img.img-circle(src="images/1.png")
+        img.img-circle(src="images/{{home.UserData.user.avatar}}.png")
         md-tooltip(md-direction="bottom") Click to change your avatar!
       h1.md-toolbar-tools(flex="70" hide show-gt-md="") {{home.UserData.user.firstName}} {{home.UserData.user.lastName}}
     md-button(flex="5", ng-click="home.logout()" hide show-gt-md="") 
