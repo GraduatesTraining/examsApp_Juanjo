@@ -3,15 +3,7 @@ md-toolbar#navigation(ng-switch="home.isLoggedIn()")
     span(flex="80" layout="row")
       md-button(ng-click="home.toggle()" hide-gt-md="" aria-label="Toggle menu" flex="5" )
         i.fa.fa-bars.fa-2x
-      md-fab-speed-dial.md-scale.over-all(md-direction="down" flex="5")
-        md-fab-trigger
-          md-button(aria-label="Avatar")
-            img.img-circle(ng-src="images/{{home.UserData.user.avatar}}.png")
-            md-tooltip(md-direction="bottom") Click to change your avatar!
-        md-fab-actions(ng-repeat="avatar in home.UtilsFactory.avatarList")
-          md-button(ng-if="home.UserData.checkAvatar(avatar.value)" aria-label="Avatar" ng-click="home.UserData.changeAvatar(avatar.value)")
-            img.img-circle(ng-src="images/{{avatar.value}}.png")
-            md-tooltip(md-direction="right") {{avatar.name}}
+      avatar-change(flex-offset=5)
       h1.md-toolbar-tools(flex="70" hide show-gt-md="") {{home.UserData.user.firstName}} {{home.UserData.user.lastName}}
     md-button(flex="5", ng-click="home.logout()" hide show-gt-md="") 
       <i class="fa fa-sign-out"></i>

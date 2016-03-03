@@ -1,0 +1,9 @@
+md-fab-speed-dial.md-scale.over-all(md-direction="down" flex="5")
+  md-fab-trigger
+    md-button(aria-label="Avatar")
+      img.img-circle(ng-src="images/{{avatarChange.UserData.user.avatar}}.png")
+      md-tooltip(md-direction="bottom") Click to change your avatar!
+  md-fab-actions(ng-repeat="avatar in avatarChange.UtilsFactory.avatarList")
+    md-button(ng-if="avatarChange.UserData.checkAvatar(avatar.value)" aria-label="Avatar" ng-click="avatarChange.UserData.changeAvatar(avatar.value)")
+      img.img-circle(ng-src="images/{{avatar.value}}.png")
+      md-tooltip(md-direction="right") {{avatar.name}}
