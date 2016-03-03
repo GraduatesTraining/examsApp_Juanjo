@@ -8,9 +8,15 @@
 
 ###
 class LoginCtrl
-  @$inject=['Auth']
-  constructor: (@Auth) ->
+  @$inject=['AuthFactory','FireBaseFactory', '$state']
+  constructor: (@AuthFactory, @FireBaseFactory, $state) ->
     @ctrlName = 'LoginCtrl'
+    @form = {}
+    @submitLogin = submitLogin
+    if(@FireBaseFactory.ref.getAuth())
+      $state.go("home.dashboard")
+  submitLogin = () ->
+    @AuthFactory.login(@form)
 
 angular
   .module('home')

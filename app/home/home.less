@@ -1,8 +1,26 @@
 #navigation{
     background-color: #C0C0C0; 
 }
+
+md-whiteframe.md-whiteframe-7dp.login{
+  margin-top:5%;
+}
+
+#sidebarhead{
+    background-color: #A1A1A0; 
+}
+
+.principal-container{
+    overflow-y:hidden;
+}
+
+
 .md-button.active{
     background-color:#808080;
+}
+
+md-list-item.active{
+    background-color: #D0D0D0;
 }
 
 .md-button.md-warn.md-raised.md-hue-2.login{
@@ -30,12 +48,49 @@
 }
 
 form.register, form.login{
-    background-color: #E0E0E0;
-    border-radius: 5px;
-    margin-top: 2%; 
-    min-height: 30%;
+    margin-top: 5%;
+}
+
+img#logo{
+  max-width:32px;
+  max-height:32px;
 }
 
 a.button-nav{
     height: 100%;
+}
+
+.img-circle {
+    border-radius: 50%;
+    max-width: 50px!important;
+    max-height: 50px!important;
+}
+
+.img-avatar {
+    border-radius: 50%;
+    max-width: 32px!important;
+    max-height: 32px!important;
+}
+
+
+@media only screen and (min-width: 960px) {
+  .img-avatar {
+      border-radius: 50%;
+      max-width: 64px!important;
+      max-height: 64px!important;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .img-circle {
+      border-radius: 50%;
+      max-width: 64px!important;
+      max-height: 64px!important;
+    }
+    .over-all{
+      z-index: 100;
+    }
+    .sidenav-behind{
+      z-index:1;
+    }
 }
