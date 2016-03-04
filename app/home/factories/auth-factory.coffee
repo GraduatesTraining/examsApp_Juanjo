@@ -9,7 +9,7 @@
 ###
 angular
   .module 'home'
-  .factory 'AuthFactory',['$state', '$mdToast', '$http', '$q', '$log', 'UtilsFactory','UserData', 'FireBaseFactory', ($state, $mdToast, $http, $q, $log, UtilsFactory, UserData, FireBaseFactory) ->
+  .factory 'AuthFactory',['$state', '$log', 'UtilsFactory','UserData', 'FireBaseFactory', ($state, $log, UtilsFactory, UserData, FireBaseFactory) ->
     new class Auth
       constructor: () ->
         @loggedIn = FireBaseFactory.ref.getAuth()?

@@ -8,7 +8,7 @@
 
 ###
 class RegisterCtrl
-  @$inject=['FireBaseFactory', 'UtilsFactory', '$state', '$mdToast', '$document']
+  @$inject=['FireBaseFactory', 'UtilsFactory', '$state']
   constructor: (@FireBaseFactory, @UtilsFactory, @$state) ->
     @ctrlName = 'RegisterCtrl'
     @form = {

@@ -9,7 +9,7 @@
 ###
 angular
   .module 'home'
-  .factory 'FireBaseFactory', ['$firebaseAuth','$state', '$mdToast', '$http', '$q', '$log', 'UtilsFactory', ($firebaseAuth,$state, $mdToast, $http, $q, $log, UtilsFactory) ->
+  .factory 'FireBaseFactory', ['$firebaseAuth', '$state', 'UtilsFactory', ($firebaseAuth, $state, UtilsFactory) ->
     new class Auth
       constructor: () ->
         @url = "https://examsdash.firebaseio.com/users.json"
